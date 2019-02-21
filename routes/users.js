@@ -1,29 +1,16 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+const router = express.Router();
 
-router.get('/api/users', function(req, res) {
-  var user_id = req.param('id');
-  res.send(user_id );
+router.get('/users', function(req, res) {
+  res.send({String:"hey now"});
 });
 
-/*
-router.post('/api/users', function(req, res) {
-  var user_id = req.param('id');
-  var token = req.param('token');
-  var geo = req.param('geo');
-
-
-  res.send(user_id + ' ' + token + ' ' + geo);
+router.post('/users', function(req, res) {
+  let user_id = req.body.id;
+  res.send("User id is "+ user_id);
 });
 
-*/
-router.post('/api/users', function(req, res) {
-  var user_id = req.body('id');
-
-  res.send(user_id );
-});
-
-
+//tested with x-www-form-urlencoded
 
 
 module.exports = router;
